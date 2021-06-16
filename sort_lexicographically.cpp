@@ -10,10 +10,11 @@ using namespace std;
 
 class SortLexi {
 public:
-	vector<string> stringsVector = { "John Doe", "John Twain",
-		"John", "Johny", "Johny Doe" };
-
+	//vector<string> stringsVector = { "John Doe", "John Twain",
+		//"John", "Johny", "Johny Doe", "Joeny doe rrr" };
+vector<string> stringsVector = {};
 	void Run() {
+		populateVector();
 		sortElem();
 	}
 private:
@@ -50,7 +51,7 @@ private:
 					if (needToSwap(stringsVector[i], stringsVector[j])) {
 						//cout << "Swapping " << i << ", " << j << endl;
 						swapElem(i, j);
-						
+
 						somethingSwapped = true;
 					}
 				}
@@ -61,6 +62,17 @@ private:
 		}
 		printVector(stringsVector);
 	};
+	void populateVector() {
+		int N;
+		string inputString;
+		cout << "Number of strings: ";
+		cin >> N;
+		cin.ignore();
+		for (int i = 0; i < N; i++) {
+			getline(cin, inputString);
+			stringsVector.push_back(inputString);
+		}
+	}
 };
 int main() {
 	SortLexi inst;
